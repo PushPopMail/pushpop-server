@@ -13,5 +13,5 @@ if [ "${SITUATION}" != 'production' -a "${SITUATION}" != 'staging' ]; then
   echo lib/start/${APP_NAME}.coffee $1
 	exec nodemon -w . lib/start/${APP_NAME}.coffee $1
 else
-	exec coffee lib/start/${APP_NAME}.coffee $1
+	exec coffee lib/start/${APP_NAME}.coffee $1 &
 fi
