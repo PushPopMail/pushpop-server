@@ -2,11 +2,32 @@
 
 ROOT=$(dirname $(dirname $0))
 PATH="node_modules/.bin:$PATH"
-APP_NAME=$1
+#PP_NAME=$1
+
+args=`getopt ica: $*`
+set -- $args
+
+for i; do
+    case "$i" in
+        -a) APP_NAME=$2
+            echo "APP is "+$APP_NAME
+            break;;
+    esac
+done
+
 if [ "${APP_NAME}" == 'haraka' ];then
-  echo "Starting haraka . . ."
-  exec haraka -c haraka_configs/haraka
-  exit 0
+    for i; do
+        case "$i" in
+            -i) echo "Setting Up Haraka . . ."
+                bin/setupharaka
+                exit 0
+                break;;
+            -c) echo "Starting haraka . . ."
+                exec haraka -c haraka_configs/haraka
+                exit 0
+                break;;
+        esac
+    done
 fi
 
 if [ "${SITUATION}" != 'production' -a "${SITUATION}" != 'staging' ]; then
