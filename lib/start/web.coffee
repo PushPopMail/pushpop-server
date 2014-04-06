@@ -21,8 +21,8 @@ startApis = (err, results) ->
 		.set('view engine', 'html')
 		.use(express.favicon())
 		.use(express.logger())
-    .use(express.json())
-    .use(express.urlencoded())
+    	.use(express.json())
+    	.use(express.urlencoded())
 		.use(express.compress())
 
 	#Api initialization
