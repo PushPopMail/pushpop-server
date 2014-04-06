@@ -4,13 +4,7 @@ ROOT=$(dirname $(dirname $0))
 PATH="node_modules/.bin:$PATH"
 APP_NAME=$1
 
-# If we aren't web or cron, we default to a task worker
-if [ ${APP_NAME} != 'web' -a ${APP_NAME} != 'cron' ]; then
-	APP_NAME="task"
-fi
-
 if [ "${SITUATION}" != 'production' -a "${SITUATION}" != 'staging' ]; then
-  echo lib/start/${APP_NAME}.coffee $1
 	exec nodemon -w . lib/start/${APP_NAME}.coffee $1
 else
 	exec coffee lib/start/${APP_NAME}.coffee $1 &
