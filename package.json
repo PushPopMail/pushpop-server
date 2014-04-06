@@ -1,0 +1,39 @@
+{
+	"name": "pushpop-server",
+	"version": "0.0.1",
+	"description": "Push Pop Web mail Server",
+	"engines": {
+		"node": "0.10.x",
+		"npm": "1.4.x"
+	},
+	"dependencies": {
+		"express": "3.x.x",
+		"express-mongoose": "0.1.x",
+		"consolidate": "0.4.x",
+		"mongoose": "3.x.x",
+		"mongodb": "1.2.x",
+		"cron": "1.0.x",
+		"redis": "0.8.x",
+		"hiredis": "0.1.x",
+		"request": "2.14.x",
+		"underscore": "1.4.x",
+		"moment": "1.7.x",
+		"semver": "1.1.x",
+		"coffee-script": "1.6.x",
+		"nodemon": "0.6.x",
+		"lru-cache": "2.2.x",
+		"amqp": "https://github.com/lookfirst/node-amqp/tarball/fix-135",
+		"async": "0.2.x",
+		"handlebars": "1.0.x",
+		"gm": "1.8.x",
+		"tmp": "0.0.x",
+		"nodetime": "0.8.x",
+		"nclosure": "0.4.x"
+	},
+	"devDependencies": {},
+	"author": "gt5050",
+	"repository": {
+		"type": "git",
+		"url": ""
+	}
+}
