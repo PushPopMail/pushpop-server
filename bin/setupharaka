@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var fs   = require('fs'),
+    os   = require('os'),
+    path = require('path'),
+    base = path.join(__dirname, '..');
+
+function setupHostname(confPath) {
+    var hostname = os.hostname() + "\n";
+
+    try {
+        var fd = fs.openSync(path.join(confPath, 'me'), 'w');
+        fs.writeSync(fd, hostname, null);
+    }
+    catch (e) {
+        warning("Unable to write config/me file: " + e);
+    }
+
+    try {
+        var fd = fs.openSync(path.join(confPath, 'host_list'), 'w');
+        fs.writeSync(fd, hostname, null);
+    }
+    catch (e) {
+        warning("Unable to write config/host_list file: " + e);
+    }
+};
+
+// Warning messsage
+function warning(msg) {
+    console.error('\x1b[31mwarning\x1b[0m: ' + msg);
+}
+
+
+
+setupHostname(base+'/haraka_configs/haraka/config/')
