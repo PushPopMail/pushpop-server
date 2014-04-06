@@ -3,6 +3,11 @@
 ROOT=$(dirname $(dirname $0))
 PATH="node_modules/.bin:$PATH"
 APP_NAME=$1
+if [ "${APP_NAME}" == 'haraka' ];then
+  echo "Starting haraka . . ."
+  exec haraka -c haraka_configs/haraka
+  exit 0
+fi
 
 if [ "${SITUATION}" != 'production' -a "${SITUATION}" != 'staging' ]; then
 	exec nodemon -w . lib/start/${APP_NAME}.coffee $1
